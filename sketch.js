@@ -1,3 +1,5 @@
+import { Vector } from './classes/Vector.js';
+
 const width = window.innerWidth;
 const height = window.innerHeight;
 
@@ -16,13 +18,17 @@ const vp2 = [rightX, horizon];
 const leftConverging = generateConvergingLines(vp1, getRand(0, 200));
 const rightConverging = generateConvergingLines(vp2, getRand(0, 200));
 
-function setup() {
+
+
+window.setup = function() {
+  const myVec = new Vector(leftX, rightX, p5.instance);
+  console.log(myVec);
   createCanvas(width, height, SVG);
   noLoop();
   background(10, 20, 30);
 }
 
-function draw() {
+window.draw = function() {
   console.log(leftX);
   stroke(255);
   strokeWeight(5);
